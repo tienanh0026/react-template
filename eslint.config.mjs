@@ -68,9 +68,6 @@ const eslintConfig = [
         },
       ],
 
-      // Sonar
-      'sonarjs/no-duplicate-string': 'warn',
-
       // Prevent deeply relative imports
       'no-restricted-imports': [
         'error',
