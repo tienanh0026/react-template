@@ -11,178 +11,215 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root';
-import { Route as Layout2Import } from './routes/_layout2';
-import { Route as Layout1Import } from './routes/_layout1';
-import { Route as IndexImport } from './routes/index';
-import { Route as HomeIndexImport } from './routes/home/index';
-import { Route as Layout1EngagementIndexImport } from './routes/_layout1/engagement/index';
-import { Route as Layout2EngagementEngagementIdIndexImport } from './routes/_layout2/engagement/$engagementId/index';
+import { Route as EngagementLayoutImport } from './routes/_engagementLayout';
+import { Route as DashboardLayoutImport } from './routes/_dashboardLayout';
+import { Route as DashboardLayoutIndexImport } from './routes/_dashboardLayout/index';
+import { Route as DashboardLayoutSettingsIndexImport } from './routes/_dashboardLayout/settings/index';
+import { Route as DashboardLayoutEngagementsIndexImport } from './routes/_dashboardLayout/engagements/index';
+import { Route as EngagementLayoutEngagementsEngagementIdIndexImport } from './routes/_engagementLayout/engagements/$engagementId/index';
+import { Route as EngagementLayoutEngagementsEngagementIdEntityIdIndexImport } from './routes/_engagementLayout/engagements/$engagementId/$entityId/index';
 
 // Create/Update Routes
 
-const Layout2Route = Layout2Import.update({
-  id: '/_layout2',
+const EngagementLayoutRoute = EngagementLayoutImport.update({
+  id: '/_engagementLayout',
   getParentRoute: () => rootRoute,
 } as any);
 
-const Layout1Route = Layout1Import.update({
-  id: '/_layout1',
+const DashboardLayoutRoute = DashboardLayoutImport.update({
+  id: '/_dashboardLayout',
   getParentRoute: () => rootRoute,
 } as any);
 
-const IndexRoute = IndexImport.update({
+const DashboardLayoutIndexRoute = DashboardLayoutIndexImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => DashboardLayoutRoute,
 } as any);
 
-const HomeIndexRoute = HomeIndexImport.update({
-  id: '/home/',
-  path: '/home/',
-  getParentRoute: () => rootRoute,
-} as any);
+const DashboardLayoutSettingsIndexRoute =
+  DashboardLayoutSettingsIndexImport.update({
+    id: '/settings/',
+    path: '/settings/',
+    getParentRoute: () => DashboardLayoutRoute,
+  } as any);
 
-const Layout1EngagementIndexRoute = Layout1EngagementIndexImport.update({
-  id: '/engagement/',
-  path: '/engagement/',
-  getParentRoute: () => Layout1Route,
-} as any);
+const DashboardLayoutEngagementsIndexRoute =
+  DashboardLayoutEngagementsIndexImport.update({
+    id: '/engagements/',
+    path: '/engagements/',
+    getParentRoute: () => DashboardLayoutRoute,
+  } as any);
 
-const Layout2EngagementEngagementIdIndexRoute =
-  Layout2EngagementEngagementIdIndexImport.update({
-    id: '/engagement/$engagementId/',
-    path: '/engagement/$engagementId/',
-    getParentRoute: () => Layout2Route,
+const EngagementLayoutEngagementsEngagementIdIndexRoute =
+  EngagementLayoutEngagementsEngagementIdIndexImport.update({
+    id: '/engagements/$engagementId/',
+    path: '/engagements/$engagementId/',
+    getParentRoute: () => EngagementLayoutRoute,
+  } as any);
+
+const EngagementLayoutEngagementsEngagementIdEntityIdIndexRoute =
+  EngagementLayoutEngagementsEngagementIdEntityIdIndexImport.update({
+    id: '/engagements/$engagementId/$entityId/',
+    path: '/engagements/$engagementId/$entityId/',
+    getParentRoute: () => EngagementLayoutRoute,
   } as any);
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/';
+    '/_dashboardLayout': {
+      id: '/_dashboardLayout';
+      path: '';
+      fullPath: '';
+      preLoaderRoute: typeof DashboardLayoutImport;
+      parentRoute: typeof rootRoute;
+    };
+    '/_engagementLayout': {
+      id: '/_engagementLayout';
+      path: '';
+      fullPath: '';
+      preLoaderRoute: typeof EngagementLayoutImport;
+      parentRoute: typeof rootRoute;
+    };
+    '/_dashboardLayout/': {
+      id: '/_dashboardLayout/';
       path: '/';
       fullPath: '/';
-      preLoaderRoute: typeof IndexImport;
-      parentRoute: typeof rootRoute;
+      preLoaderRoute: typeof DashboardLayoutIndexImport;
+      parentRoute: typeof DashboardLayoutImport;
     };
-    '/_layout1': {
-      id: '/_layout1';
-      path: '';
-      fullPath: '';
-      preLoaderRoute: typeof Layout1Import;
-      parentRoute: typeof rootRoute;
+    '/_dashboardLayout/engagements/': {
+      id: '/_dashboardLayout/engagements/';
+      path: '/engagements';
+      fullPath: '/engagements';
+      preLoaderRoute: typeof DashboardLayoutEngagementsIndexImport;
+      parentRoute: typeof DashboardLayoutImport;
     };
-    '/_layout2': {
-      id: '/_layout2';
-      path: '';
-      fullPath: '';
-      preLoaderRoute: typeof Layout2Import;
-      parentRoute: typeof rootRoute;
+    '/_dashboardLayout/settings/': {
+      id: '/_dashboardLayout/settings/';
+      path: '/settings';
+      fullPath: '/settings';
+      preLoaderRoute: typeof DashboardLayoutSettingsIndexImport;
+      parentRoute: typeof DashboardLayoutImport;
     };
-    '/home/': {
-      id: '/home/';
-      path: '/home';
-      fullPath: '/home';
-      preLoaderRoute: typeof HomeIndexImport;
-      parentRoute: typeof rootRoute;
+    '/_engagementLayout/engagements/$engagementId/': {
+      id: '/_engagementLayout/engagements/$engagementId/';
+      path: '/engagements/$engagementId';
+      fullPath: '/engagements/$engagementId';
+      preLoaderRoute: typeof EngagementLayoutEngagementsEngagementIdIndexImport;
+      parentRoute: typeof EngagementLayoutImport;
     };
-    '/_layout1/engagement/': {
-      id: '/_layout1/engagement/';
-      path: '/engagement';
-      fullPath: '/engagement';
-      preLoaderRoute: typeof Layout1EngagementIndexImport;
-      parentRoute: typeof Layout1Import;
-    };
-    '/_layout2/engagement/$engagementId/': {
-      id: '/_layout2/engagement/$engagementId/';
-      path: '/engagement/$engagementId';
-      fullPath: '/engagement/$engagementId';
-      preLoaderRoute: typeof Layout2EngagementEngagementIdIndexImport;
-      parentRoute: typeof Layout2Import;
+    '/_engagementLayout/engagements/$engagementId/$entityId/': {
+      id: '/_engagementLayout/engagements/$engagementId/$entityId/';
+      path: '/engagements/$engagementId/$entityId';
+      fullPath: '/engagements/$engagementId/$entityId';
+      preLoaderRoute: typeof EngagementLayoutEngagementsEngagementIdEntityIdIndexImport;
+      parentRoute: typeof EngagementLayoutImport;
     };
   }
 }
 
 // Create and export the route tree
 
-interface Layout1RouteChildren {
-  Layout1EngagementIndexRoute: typeof Layout1EngagementIndexRoute;
+interface DashboardLayoutRouteChildren {
+  DashboardLayoutIndexRoute: typeof DashboardLayoutIndexRoute;
+  DashboardLayoutEngagementsIndexRoute: typeof DashboardLayoutEngagementsIndexRoute;
+  DashboardLayoutSettingsIndexRoute: typeof DashboardLayoutSettingsIndexRoute;
 }
 
-const Layout1RouteChildren: Layout1RouteChildren = {
-  Layout1EngagementIndexRoute: Layout1EngagementIndexRoute,
+const DashboardLayoutRouteChildren: DashboardLayoutRouteChildren = {
+  DashboardLayoutIndexRoute: DashboardLayoutIndexRoute,
+  DashboardLayoutEngagementsIndexRoute: DashboardLayoutEngagementsIndexRoute,
+  DashboardLayoutSettingsIndexRoute: DashboardLayoutSettingsIndexRoute,
 };
 
-const Layout1RouteWithChildren =
-  Layout1Route._addFileChildren(Layout1RouteChildren);
+const DashboardLayoutRouteWithChildren = DashboardLayoutRoute._addFileChildren(
+  DashboardLayoutRouteChildren,
+);
 
-interface Layout2RouteChildren {
-  Layout2EngagementEngagementIdIndexRoute: typeof Layout2EngagementEngagementIdIndexRoute;
+interface EngagementLayoutRouteChildren {
+  EngagementLayoutEngagementsEngagementIdIndexRoute: typeof EngagementLayoutEngagementsEngagementIdIndexRoute;
+  EngagementLayoutEngagementsEngagementIdEntityIdIndexRoute: typeof EngagementLayoutEngagementsEngagementIdEntityIdIndexRoute;
 }
 
-const Layout2RouteChildren: Layout2RouteChildren = {
-  Layout2EngagementEngagementIdIndexRoute:
-    Layout2EngagementEngagementIdIndexRoute,
+const EngagementLayoutRouteChildren: EngagementLayoutRouteChildren = {
+  EngagementLayoutEngagementsEngagementIdIndexRoute:
+    EngagementLayoutEngagementsEngagementIdIndexRoute,
+  EngagementLayoutEngagementsEngagementIdEntityIdIndexRoute:
+    EngagementLayoutEngagementsEngagementIdEntityIdIndexRoute,
 };
 
-const Layout2RouteWithChildren =
-  Layout2Route._addFileChildren(Layout2RouteChildren);
+const EngagementLayoutRouteWithChildren =
+  EngagementLayoutRoute._addFileChildren(EngagementLayoutRouteChildren);
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute;
-  '': typeof Layout2RouteWithChildren;
-  '/home': typeof HomeIndexRoute;
-  '/engagement': typeof Layout1EngagementIndexRoute;
-  '/engagement/$engagementId': typeof Layout2EngagementEngagementIdIndexRoute;
+  '': typeof EngagementLayoutRouteWithChildren;
+  '/': typeof DashboardLayoutIndexRoute;
+  '/engagements': typeof DashboardLayoutEngagementsIndexRoute;
+  '/settings': typeof DashboardLayoutSettingsIndexRoute;
+  '/engagements/$engagementId': typeof EngagementLayoutEngagementsEngagementIdIndexRoute;
+  '/engagements/$engagementId/$entityId': typeof EngagementLayoutEngagementsEngagementIdEntityIdIndexRoute;
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute;
-  '': typeof Layout2RouteWithChildren;
-  '/home': typeof HomeIndexRoute;
-  '/engagement': typeof Layout1EngagementIndexRoute;
-  '/engagement/$engagementId': typeof Layout2EngagementEngagementIdIndexRoute;
+  '': typeof EngagementLayoutRouteWithChildren;
+  '/': typeof DashboardLayoutIndexRoute;
+  '/engagements': typeof DashboardLayoutEngagementsIndexRoute;
+  '/settings': typeof DashboardLayoutSettingsIndexRoute;
+  '/engagements/$engagementId': typeof EngagementLayoutEngagementsEngagementIdIndexRoute;
+  '/engagements/$engagementId/$entityId': typeof EngagementLayoutEngagementsEngagementIdEntityIdIndexRoute;
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute;
-  '/': typeof IndexRoute;
-  '/_layout1': typeof Layout1RouteWithChildren;
-  '/_layout2': typeof Layout2RouteWithChildren;
-  '/home/': typeof HomeIndexRoute;
-  '/_layout1/engagement/': typeof Layout1EngagementIndexRoute;
-  '/_layout2/engagement/$engagementId/': typeof Layout2EngagementEngagementIdIndexRoute;
+  '/_dashboardLayout': typeof DashboardLayoutRouteWithChildren;
+  '/_engagementLayout': typeof EngagementLayoutRouteWithChildren;
+  '/_dashboardLayout/': typeof DashboardLayoutIndexRoute;
+  '/_dashboardLayout/engagements/': typeof DashboardLayoutEngagementsIndexRoute;
+  '/_dashboardLayout/settings/': typeof DashboardLayoutSettingsIndexRoute;
+  '/_engagementLayout/engagements/$engagementId/': typeof EngagementLayoutEngagementsEngagementIdIndexRoute;
+  '/_engagementLayout/engagements/$engagementId/$entityId/': typeof EngagementLayoutEngagementsEngagementIdEntityIdIndexRoute;
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: '/' | '' | '/home' | '/engagement' | '/engagement/$engagementId';
+  fullPaths:
+    | ''
+    | '/'
+    | '/engagements'
+    | '/settings'
+    | '/engagements/$engagementId'
+    | '/engagements/$engagementId/$entityId';
   fileRoutesByTo: FileRoutesByTo;
-  to: '/' | '' | '/home' | '/engagement' | '/engagement/$engagementId';
+  to:
+    | ''
+    | '/'
+    | '/engagements'
+    | '/settings'
+    | '/engagements/$engagementId'
+    | '/engagements/$engagementId/$entityId';
   id:
     | '__root__'
-    | '/'
-    | '/_layout1'
-    | '/_layout2'
-    | '/home/'
-    | '/_layout1/engagement/'
-    | '/_layout2/engagement/$engagementId/';
+    | '/_dashboardLayout'
+    | '/_engagementLayout'
+    | '/_dashboardLayout/'
+    | '/_dashboardLayout/engagements/'
+    | '/_dashboardLayout/settings/'
+    | '/_engagementLayout/engagements/$engagementId/'
+    | '/_engagementLayout/engagements/$engagementId/$entityId/';
   fileRoutesById: FileRoutesById;
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute;
-  Layout1Route: typeof Layout1RouteWithChildren;
-  Layout2Route: typeof Layout2RouteWithChildren;
-  HomeIndexRoute: typeof HomeIndexRoute;
+  DashboardLayoutRoute: typeof DashboardLayoutRouteWithChildren;
+  EngagementLayoutRoute: typeof EngagementLayoutRouteWithChildren;
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  Layout1Route: Layout1RouteWithChildren,
-  Layout2Route: Layout2RouteWithChildren,
-  HomeIndexRoute: HomeIndexRoute,
+  DashboardLayoutRoute: DashboardLayoutRouteWithChildren,
+  EngagementLayoutRoute: EngagementLayoutRouteWithChildren,
 };
 
 export const routeTree = rootRoute
@@ -195,37 +232,44 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
-        "/_layout1",
-        "/_layout2",
-        "/home/"
+        "/_dashboardLayout",
+        "/_engagementLayout"
       ]
     },
-    "/": {
-      "filePath": "index.tsx"
-    },
-    "/_layout1": {
-      "filePath": "_layout1.tsx",
+    "/_dashboardLayout": {
+      "filePath": "_dashboardLayout.tsx",
       "children": [
-        "/_layout1/engagement/"
+        "/_dashboardLayout/",
+        "/_dashboardLayout/engagements/",
+        "/_dashboardLayout/settings/"
       ]
     },
-    "/_layout2": {
-      "filePath": "_layout2.tsx",
+    "/_engagementLayout": {
+      "filePath": "_engagementLayout.tsx",
       "children": [
-        "/_layout2/engagement/$engagementId/"
+        "/_engagementLayout/engagements/$engagementId/",
+        "/_engagementLayout/engagements/$engagementId/$entityId/"
       ]
     },
-    "/home/": {
-      "filePath": "home/index.tsx"
+    "/_dashboardLayout/": {
+      "filePath": "_dashboardLayout/index.tsx",
+      "parent": "/_dashboardLayout"
     },
-    "/_layout1/engagement/": {
-      "filePath": "_layout1/engagement/index.tsx",
-      "parent": "/_layout1"
+    "/_dashboardLayout/engagements/": {
+      "filePath": "_dashboardLayout/engagements/index.tsx",
+      "parent": "/_dashboardLayout"
     },
-    "/_layout2/engagement/$engagementId/": {
-      "filePath": "_layout2/engagement/$engagementId/index.tsx",
-      "parent": "/_layout2"
+    "/_dashboardLayout/settings/": {
+      "filePath": "_dashboardLayout/settings/index.tsx",
+      "parent": "/_dashboardLayout"
+    },
+    "/_engagementLayout/engagements/$engagementId/": {
+      "filePath": "_engagementLayout/engagements/$engagementId/index.tsx",
+      "parent": "/_engagementLayout"
+    },
+    "/_engagementLayout/engagements/$engagementId/$entityId/": {
+      "filePath": "_engagementLayout/engagements/$engagementId/$entityId/index.tsx",
+      "parent": "/_engagementLayout"
     }
   }
 }
