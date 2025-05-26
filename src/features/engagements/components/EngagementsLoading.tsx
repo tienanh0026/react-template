@@ -9,7 +9,7 @@ export default function EngagementLoading() {
         {[...Array(4)].map((_, index) => (
           <div
             key={index}
-            className="h-[172px] w-full"
+            className="h-43 w-full"
             style={{
               background:
                 'linear-gradient(312.37deg, #FFFFFF 8.05%, #E8E8E8 94.37%)',

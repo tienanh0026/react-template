@@ -19,13 +19,13 @@ export default function Navigation() {
     { label: 'Settings', href: '/settings' },
   ];
   return (
-    <NavigationMenu className="h-[33px]">
+    <NavigationMenu className="h-8">
       <NavigationMenuList>
         {menuItems.map((item) => (
           <NavigationMenuItem key={item.label}>
             <NavigationMenuLink
               className={cn(
-                'font-inter p-2 text-[14px] font-bold text-[#B4B4B4]',
+                'font-inter p-2 text-sm font-bold text-[#B4B4B4]',
                 isActive(item.href) && 'text-[#00338D]',
               )}
               asChild

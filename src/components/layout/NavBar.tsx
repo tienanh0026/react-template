@@ -2,7 +2,6 @@ import { ChevronsUpDown, GalleryVerticalEnd } from 'lucide-react';
 import { useState } from 'react';
 
 import NavBarMenu from '@/components/common/NavBarMenu';
-import { Button } from '@/components/ui/button';
 import {
   Command,
   CommandEmpty,
@@ -49,20 +48,19 @@ export default function NavBar({ className }: { className?: string }) {
       {/* choose version */}
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger>
-          <Button
-            variant="outline"
+          <div
             role="combobox"
             aria-expanded={open}
-            className="h-[32px] w-[210px] cursor-pointer justify-between rounded-full border border-[#E8E8E8] bg-[#F8F8F8] px-4 py-2 text-[#444444]"
+            className="flex cursor-pointer gap-3 rounded-full border border-[#E8E8E8] bg-[#F8F8F8] px-4 py-2 text-[#444444]"
           >
             <GalleryVerticalEnd size={16} />
-            <div className="flex items-center gap-1 font-[400]">
+            <div className="flex items-center gap-1 text-xs font-normal">
               <span>{value || <span>16-Nov-2024, 3.30pm</span>}</span>
-              <ChevronsUpDown />
+              <ChevronsUpDown size={16} />
             </div>
-          </Button>
+          </div>
         </PopoverTrigger>
-        <PopoverContent className="w-[200px] rounded-xl p-0 shadow-lg">
+        <PopoverContent className="w-50 rounded-xl p-0 shadow-lg">
           <Command>
             <CommandInput placeholder="Search framework..." />
             <CommandList>

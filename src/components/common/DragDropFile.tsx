@@ -93,7 +93,7 @@ export default function DragDropFile({
               {files.map((file, index) => (
                 <li key={index} className="flex items-center gap-2">
                   <Check size={16} />
-                  <p className="text-xs leading-[20px]">{file.name}</p>
+                  <p className="text-xs leading-5">{file.name}</p>
                 </li>
               ))}
             </ul>

@@ -2,7 +2,7 @@ import { Link } from '@tanstack/react-router';
 import { ChevronDown, ChevronUp, Eye, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 import {
   Collapsible,
   CollapsibleContent,

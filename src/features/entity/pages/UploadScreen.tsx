@@ -18,7 +18,7 @@ import { useState } from 'react';
 
 import PhaseTabs from '@/components/common/PhaseTabs';
 import { Badge } from '@/components/ui/Badge';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 import {
   Command,
   CommandEmpty,
@@ -146,7 +146,7 @@ export default function Page() {
                 <PopoverTrigger>
                   <ChevronsUpDown size={16} className="cursor-pointer" />
                 </PopoverTrigger>
-                <PopoverContent className="font-inter w-[448px] rounded-xl p-1 shadow-lg">
+                <PopoverContent className="font-inter w-md rounded-xl p-1 shadow-lg">
                   <Command>
                     <CommandInput placeholder="Search engagement" />
                     <CommandList className="p-1">
@@ -191,7 +191,7 @@ export default function Page() {
                 <PopoverTrigger>
                   <ChevronsUpDown size={16} className="cursor-pointer" />
                 </PopoverTrigger>
-                <PopoverContent className="font-inter z-50 w-[448px] rounded-xl p-1 shadow-lg">
+                <PopoverContent className="font-inter z-50 w-md rounded-xl p-1 shadow-lg">
                   <Command>
                     <CommandInput placeholder="Search engagement" />
                     <CommandList className="p-1">
@@ -246,7 +246,7 @@ export default function Page() {
 
           <div className="flex items-center gap-4">
             <Coins />
-            <TabsList className="h-[52px]">
+            <TabsList className="h-13">
               <TabsTrigger value="1" className="cursor-pointer px-3 py-1.5">
                 <div className="flex items-center gap-4">
                   <div className="flex w-max gap-2">
@@ -256,7 +256,7 @@ export default function Page() {
                       width={16}
                       height={16}
                     />
-                    <span className="text-muted-foreground text-center text-xs leading-[20px]">
+                    <span className="text-muted-foreground text-center text-xs leading-5">
                       P
                     </span>
                   </div>
@@ -272,7 +272,7 @@ export default function Page() {
                       width={16}
                       height={16}
                     />
-                    <span className="text-muted-foreground text-center text-xs leading-[20px]">
+                    <span className="text-muted-foreground text-center text-xs leading-5">
                       HC
                     </span>
                   </div>
@@ -289,7 +289,7 @@ export default function Page() {
                     width={16}
                     height={16}
                   />
-                  <span className="text-muted-foreground text-center text-xs leading-[20px]">
+                  <span className="text-muted-foreground text-center text-xs leading-5">
                     F
                   </span>
                 </div>

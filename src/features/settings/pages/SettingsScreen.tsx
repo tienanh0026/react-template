@@ -8,7 +8,7 @@ import { Search, Settings2 } from 'lucide-react';
 
 import NavBarMenu from '@/components/common/NavBarMenu';
 import { Badge } from '@/components/ui/Badge';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/Card';
 import { Input } from '@/components/ui/Input';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/Tabs';
@@ -98,21 +98,21 @@ const cardList = [
 
 export default function SettingsScreen() {
   return (
-    <>
+    <div className="px-2">
       <NavBarMenu padding="py-6">
-        <div className="relative h-[47px] w-[280px]">
+        <div className="relative w-2xs">
           <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-[#848485]" />
           <Input
             type="text"
             placeholder="Search mapping"
-            className="h-full pl-9"
+            className="h-full p-3 pl-9"
           />
         </div>
       </NavBarMenu>
 
-      <div className="mt-[127px]">
+      <div className="mt-8">
         <Tabs defaultValue="mapping" className="relative w-full gap-0">
-          <div className="flex h-10 justify-between">
+          <div className="flex h-10">
             <TabsList className="bg-muted rounded-[6px]">
               <TabsTrigger
                 value="mapping"
@@ -140,18 +140,18 @@ export default function SettingsScreen() {
                 </Button>
               </MappingSheet>
             </div>
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 grid grid-cols-3 gap-4">
               <TooltipProvider>
                 {cardList.map((item) => (
                   <Card
                     key={item.title}
-                    className="w-[306px] rounded-[8px] bg-[#FEFEFE] py-4 shadow-none"
+                    className="rounded-[8px] bg-[#FEFEFE] py-4 shadow-none"
                   >
                     <CardContent className="space-y-6 px-4">
                       <div className="space-y-1">
                         <div className="flex items-center justify-between">
                           <h3
-                            className={`leading-[19px] font-semibold text-[#444444]`}
+                            className={`leading-5 font-semibold text-[#444444]`}
                           >
                             {item.title}
                           </h3>
@@ -228,7 +228,7 @@ export default function SettingsScreen() {
                     <div className="space-y-1">
                       <div className="flex items-center justify-between">
                         <h3
-                          className={`leading-[19px] font-semibold text-[#444444]`}
+                          className={`leading-5 font-semibold text-[#444444]`}
                         >
                           {item.title}
                         </h3>
@@ -256,6 +256,6 @@ export default function SettingsScreen() {
           </TabsContent>
         </Tabs>
       </div>
-    </>
+    </div>
   );
 }

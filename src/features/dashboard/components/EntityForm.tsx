@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 import {
   Form,
   FormControl,
@@ -124,12 +124,12 @@ export default function EntityForm() {
           </div>
         </form>
       </Form>
-      <div className="min-h-[200px] space-y-2">
+      <div className="min-h-50 space-y-2">
         {entities.length > 0 ? (
           entities.map(({ entityName, entityCode, engagementCode }) => (
             <div
               key={entityCode}
-              className="flex h-9 items-center rounded-sm border bg-white px-3 text-xs leading-[130%] text-black"
+              className="flex h-9 items-center rounded-sm border bg-white px-3 text-xs leading-4 text-black"
             >
               <div className="flex-2">{entityName}</div>
               <div className="flex-1">{entityCode}</div>
@@ -147,7 +147,7 @@ export default function EntityForm() {
             </div>
           ))
         ) : (
-          <div className="flex h-[200px] w-full items-center justify-center">
+          <div className="flex h-50 w-full items-center justify-center">
             <span className="text-xs font-medium">
               Start adding entitles for this engagement by uploading .csv or
               adding it manually

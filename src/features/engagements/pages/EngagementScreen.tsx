@@ -53,7 +53,7 @@ export default function EngagementScreen() {
             >
               DP
             </Badge>
-            <div className="w-[253px]">
+            <div className="pr-2">
               <h3 className="font-semibold text-[#222222]">
                 Horizon Dynamics Ltd
               </h3>
@@ -65,7 +65,7 @@ export default function EngagementScreen() {
               <PopoverTrigger>
                 <ChevronsUpDown size={16} className="cursor-pointer" />
               </PopoverTrigger>
-              <PopoverContent className="font-inter w-[448px] p-1">
+              <PopoverContent className="font-inter w-md p-1">
                 <Command>
                   <CommandInput placeholder="Search engagement" />
                   <CommandList className="p-1">
@@ -102,7 +102,7 @@ export default function EngagementScreen() {
 
           <div className="flex items-center gap-4">
             <Coins />
-            <TabsList className="h-[52px]">
+            <TabsList className="h-13">
               <TabsTrigger value="1" className="cursor-pointer px-3 py-1.5">
                 <div className="flex items-center gap-4">
                   <div className="flex w-max gap-2">
@@ -158,14 +158,10 @@ export default function EngagementScreen() {
             <EngagementContent />
           </TabsContent>
           <TabsContent value="2">
-            <div className="h-full rounded bg-green-100 p-4">
-              Nội dung của Tab 2
-            </div>
+            <EngagementContent />
           </TabsContent>
           <TabsContent value="3">
-            <div className="h-full rounded bg-green-100 p-4">
-              Nội dung của Tab 3
-            </div>
+            <EngagementContent />
           </TabsContent>
         </div>
       </Tabs>

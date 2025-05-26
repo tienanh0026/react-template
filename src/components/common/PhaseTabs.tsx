@@ -51,7 +51,7 @@ export default function PhaseTabs({
   size = 'large',
 }: Props) {
   return (
-    <div className="flex h-full flex-1 gap-2">
+    <div className="flex flex-1 gap-2">
       {steps.map((step, index) => (
         <div
           key={index}
@@ -70,7 +70,7 @@ export default function PhaseTabs({
               <span
                 className={`${
                   size === 'large'
-                    ? 'text-xl leading-[20px] font-bold'
+                    ? 'text-xl leading-5 font-bold'
                     : 'text-sm font-medium'
                 } text-gray-700`}
               >

@@ -14,7 +14,7 @@ import {
 import { useState } from 'react';
 
 import ChatBox from '@/components/common/ChatBox';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 import {
   Collapsible,
   CollapsibleContent,
@@ -71,10 +71,10 @@ export default function EngagementLayout() {
   const [isOpenPhase, setIsOpenPhase] = useState(true);
 
   return (
-    <div className="flex h-[calc(100vh-56px)]">
-      <div className="h-full w-1/3 border-r border-[#D4D4D5]">
+    <div className="flex h-full">
+      <div className="flex h-full w-1/3 flex-col border-r border-[#D4D4D5]">
         <div
-          className="flex h-[65px] items-center justify-between p-4"
+          className="z-10 flex h-16 items-center justify-between p-4"
           style={{
             background:
               'linear-gradient(73.26deg, #F1EDFF 0%, #F3F0F8 52.77%, #FCFCFC 100%)',
@@ -87,16 +87,16 @@ export default function EngagementLayout() {
                 <div
                   role="combobox"
                   aria-expanded={open}
-                  className="flex h-[33px] w-[173px] cursor-pointer justify-between rounded-full border border-[#E8E8E8] bg-[#FCFCFC] py-2 text-[#444444] has-[>svg]:px-4"
+                  className="flex w-43 cursor-pointer justify-between rounded-full border border-[#E8E8E8] bg-[#FCFCFC] py-2 text-[#444444] has-[>svg]:px-4"
                 >
                   <GalleryVerticalEnd size={16} />
-                  <div className="flex items-center gap-1 font-[400]">
+                  <div className="flex items-center gap-1 font-normal">
                     <span>{value || <span>16-Nov-2024</span>}</span>
                     <ChevronsUpDown size={16} />
                   </div>
                 </div>
               </PopoverTrigger>
-              <PopoverContent className="w-[200px] p-0">
+              <PopoverContent className="w-50 p-0">
                 <Command>
                   <CommandInput placeholder="Search framework..." />
                   <CommandList>
@@ -130,7 +130,7 @@ export default function EngagementLayout() {
             </Button>
           </div>
         </div>
-        <div className="flex h-[calc(100vh-56px-65px)] w-full flex-col p-4 pb-0">
+        <div className="flex h-0 w-full flex-1 flex-col p-4 pb-0">
           {/* Management phase */}
           <div className="w-full">
             <Collapsible
@@ -198,7 +198,7 @@ export default function EngagementLayout() {
             </Collapsible>
           </div>
 
-          <div className="relative flex flex-1 flex-col overflow-y-auto">
+          <div className="flex-1 overflow-auto">
             {/* Empty chat */}
             {/* <div className="flex flex-col gap-8">
               <h3 className="font-bold text-[#444444]">
@@ -222,19 +222,19 @@ export default function EngagementLayout() {
             <div className="mb-2 flex gap-4 text-[#222222]">
               <Button
                 variant="outline"
-                className="h-[33px] cursor-pointer rounded-full border-[#D4D4D4] p-2 has-[>svg]:px-2"
+                className="h-8 cursor-pointer rounded-full border-[#D4D4D4] p-2 has-[>svg]:px-2"
               >
                 <DiamondPlus /> Manage Entities
               </Button>
               <Button
                 variant="outline"
-                className="h-[33px] cursor-pointer rounded-full border-[#D4D4D4] p-2 has-[>svg]:px-2"
+                className="h-8 cursor-pointer rounded-full border-[#D4D4D4] p-2 has-[>svg]:px-2"
               >
                 <ScanSearch /> Quick view
               </Button>
               <Button
                 variant="outline"
-                className="h-[33px] cursor-pointer rounded-full border-[#D4D4D4] p-2 has-[>svg]:px-2"
+                className="h-8 cursor-pointer rounded-full border-[#D4D4D4] p-2 has-[>svg]:px-2"
               >
                 <UserPlus /> Modify users
               </Button>
@@ -243,7 +243,7 @@ export default function EngagementLayout() {
         </div>
       </div>
 
-      <div className="w-2/3">
+      <div className="h-full w-2/3">
         <Outlet />
       </div>
     </div>

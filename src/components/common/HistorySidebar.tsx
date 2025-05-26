@@ -21,15 +21,15 @@ export function HistorySidebar() {
   ];
 
   return (
-    <aside className="box-border h-[calc(100svh-56px)] w-52 overflow-y-auto border-l border-[#D4D4D5] bg-white">
-      <div className="flex h-[33px] items-center gap-2 border-b border-[#D6D6D6] p-2">
+    <aside className="box-border w-52 overflow-y-auto border-l border-[#D4D4D5] bg-white">
+      <div className="flex items-center gap-2 border-b border-[#D6D6D6] p-2">
         <PanelRightClose color="#787878" size={16} />
         <span className="text-sm font-bold text-[#444444]">Activities</span>
       </div>
       <div className="divide-y">
         {historyData.map((item) => (
           <div className="p-4" key={item.title}>
-            <span className="mb-2 block text-xs leading-[20px] font-bold text-[#787878]">
+            <span className="mb-2 block text-xs leading-5 font-bold text-[#787878]">
               {item.title}
             </span>
             <ul>

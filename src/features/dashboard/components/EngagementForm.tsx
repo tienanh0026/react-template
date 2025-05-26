@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { Badge } from '@/components/ui/Badge';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 import { Calendar } from '@/components/ui/Calendar';
 import { Checkbox } from '@/components/ui/Checkbox';
 import {
@@ -265,7 +265,7 @@ export default function EngagementForm() {
                               width={16}
                               height={16}
                             />
-                            <span className="text-muted-foreground text-center text-xs leading-[20px]">
+                            <span className="text-muted-foreground text-center text-xs leading-5">
                               P
                             </span>
                           </TabsTrigger>
@@ -279,7 +279,7 @@ export default function EngagementForm() {
                               width={16}
                               height={16}
                             />
-                            <span className="text-muted-foreground text-center text-xs leading-[20px]">
+                            <span className="text-muted-foreground text-center text-xs leading-5">
                               HC
                             </span>
                           </TabsTrigger>
@@ -376,7 +376,7 @@ export default function EngagementForm() {
                   </FormLabel>
 
                   <div className="relative w-full">
-                    <div className="focus-within:ring-ring flex min-h-[40px] flex-wrap items-center gap-2 rounded-md border bg-white p-2 focus-within:ring-2">
+                    <div className="focus-within:ring-ring flex min-h-10 flex-wrap items-center gap-2 rounded-md border bg-white p-2 focus-within:ring-2">
                       {field.value?.map((value: string) => {
                         const member = members.find((m) => m.id === value);
                         if (!member) return null;
@@ -384,7 +384,7 @@ export default function EngagementForm() {
                           <Badge
                             key={value}
                             variant="secondary"
-                            className="flex items-center gap-2 rounded-[15px] bg-[var(--form-states-fill-static)] px-2 py-1 text-xs leading-[16.8px] font-bold tracking-[0.16px] text-[#323C4E]"
+                            className="flex items-center gap-2 rounded-[15px] bg-[var(--form-states-fill-static)] px-2 py-1 text-xs leading-4 font-bold tracking-[0.16px] text-[#323C4E]"
                           >
                             {member.name}
                             <button
@@ -462,7 +462,7 @@ export default function EngagementForm() {
                   <FormLabel className="font-bold">Team Members</FormLabel>
 
                   <div className="relative w-full">
-                    <div className="focus-within:ring-ring flex min-h-[40px] flex-wrap items-center gap-2 rounded-md border bg-white p-2 focus-within:ring-2">
+                    <div className="focus-within:ring-ring flex min-h-10 flex-wrap items-center gap-2 rounded-md border bg-white p-2 focus-within:ring-2">
                       {field.value?.map((value: string) => {
                         const member = members.find((m) => m.id === value);
                         if (!member) return null;
@@ -470,7 +470,7 @@ export default function EngagementForm() {
                           <Badge
                             key={value}
                             variant="secondary"
-                            className="flex items-center gap-2 rounded-[15px] bg-[var(--form-states-fill-static)] px-2 py-1 text-xs leading-[16.8px] font-bold tracking-[0.16px] text-[#323C4E]"
+                            className="flex items-center gap-2 rounded-[15px] bg-[var(--form-states-fill-static)] px-2 py-1 text-xs leading-4 font-bold tracking-[0.16px] text-[#323C4E]"
                           >
                             {member.name}
                             <button

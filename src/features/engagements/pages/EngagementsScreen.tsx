@@ -198,19 +198,19 @@ export default function EngagementsScreen() {
   };
 
   return (
-    <>
+    <div className="px-2">
       <NavBarMenu>
-        <div className="relative h-[45px] w-[421px]">
+        <div className="relative w-sm">
           <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-[#848485]" />
           <Input
             type="text"
             placeholder="Search engagement "
-            className="h-full pl-9"
+            className="h-full p-3 pl-9"
           />
         </div>
       </NavBarMenu>
 
-      <div className="mt-[79px] flex flex-wrap gap-4">
+      <div className="grid grid-cols-3 gap-4">
         <TooltipProvider>
           {cardList.map((engagement) => (
             <Link
@@ -218,13 +218,13 @@ export default function EngagementsScreen() {
               params={{ engagementId: engagement.id }}
               key={engagement.engagementTitle}
             >
-              <Card className="w-[306px] rounded-[8px] bg-[#FEFEFE] py-4 shadow-none">
+              <Card className="w-full rounded-[8px] bg-[#FEFEFE] py-4 shadow-none">
                 <CardContent className="space-y-4 px-4">
                   <div className="space-y-1">
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <h3
-                          className={`mb-0 truncate leading-[19px] font-semibold text-[#444444] ${
+                          className={`mb-0 truncate leading-5 font-semibold text-[#444444] ${
                             engagement.engagementTitle.length > 35
                               ? 'cursor-pointer'
                               : ''
@@ -269,7 +269,7 @@ export default function EngagementsScreen() {
                         width={16}
                         height={16}
                       />
-                      <span className="text-muted-foreground text-center text-xs leading-[20px]">
+                      <span className="text-muted-foreground text-center text-xs leading-5">
                         {engagement.currentPhase}
                       </span>
                     </Badge>
@@ -287,6 +287,6 @@ export default function EngagementsScreen() {
           ))}
         </TooltipProvider>
       </div>
-    </>
+    </div>
   );
 }
